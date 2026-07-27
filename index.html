@@ -8,12 +8,15 @@
   <link rel="icon" type="image/jpeg" href="assets/icon2.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-progress" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Go to home">
       <span class="brand-mark"><i class="fa-solid fa-network-wired"></i></span>
@@ -38,7 +41,7 @@
     <section class="hero section reveal" id="home">
       <div class="hero-copy">
         <p class="eyebrow"><i class="fa-solid fa-terminal"></i> DevOps / Cloud Intern</p>
-        <h1>Building automated systems and reliable cloud workflows.</h1>
+        <h1 class="gradient-text">Building automated systems & reliable cloud workflows.</h1>
         <p class="hero-text">
           I am an IT student focused on Linux, networking, cloud infrastructure,
           Kubernetes, Docker, monitoring, and automation. I am open to internship
@@ -53,9 +56,9 @@
         </div>
 
         <div class="quick-links" aria-label="Profile links">
-          <a href="https://github.com/huymt05" target="_blank" rel="noreferrer"><i class="devicon-github-original"></i> GitHub</a>
-          <a href="https://www.linkedin.com/in/huymt05/" target="_blank" rel="noreferrer"><i class="devicon-linkedin-plain"></i> LinkedIn</a>
-          <a href="mailto:vanhuy.thcscc@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://github.com/huymt05" target="_blank" rel="noreferrer"><i class="devicon-github-original colored"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/huymt05/" target="_blank" rel="noreferrer"><i class="devicon-linkedin-plain colored"></i> LinkedIn</a>
+          <a href="mailto:vanhuy.thcscc@gmail.com"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> Email</a>
         </div>
       </div>
 
@@ -65,7 +68,7 @@
           Open to internships
         </div>
         <div class="profile-card">
-          <div class="avatar">
+          <div class="avatar floating">
             <img src="assets/avatar.jpg" alt="Nguyen Van Huy profile photo">
           </div>
           <h2>Nguyen Van Huy</h2>
@@ -119,7 +122,7 @@
 
       <div class="skill-list">
         <article class="skill-card">
-          <h3><i class="fa-solid fa-code"></i> Programming & Scripting</h3>
+          <h3><i class="fa-solid fa-code" style="color: var(--primary);"></i> Programming</h3>
           <p>Python, Bash/Shell, SQL, C++, JavaScript basic, and HTML/CSS basic.</p>
         </article>
         <article class="skill-card">
@@ -131,15 +134,15 @@
           <p>Linux, Ubuntu, Prometheus, Grafana, Jaeger, log and metric collection, and basic troubleshooting.</p>
         </article>
         <article class="skill-card">
-          <h3><i class="fa-solid fa-network-wired"></i> Networking</h3>
+          <h3><i class="fa-solid fa-network-wired" style="color: var(--primary);"></i> Networking</h3>
           <p>TCP/IP, DNS, HTTP/HTTPS, OSI model, VLAN, routing, VPN, firewall basics, and cloud networking.</p>
         </article>
         <article class="skill-card">
-          <h3><i class="devicon-postgresql-plain colored"></i> Databases & Tools</h3>
+          <h3><i class="devicon-postgresql-plain colored"></i> Databases</h3>
           <p>PostgreSQL basics, MySQL, Git, GitHub, Postman, VS Code, and practical development workflows.</p>
         </article>
         <article class="skill-card">
-          <h3><i class="fa-solid fa-brain"></i> AI/ML Basics</h3>
+          <h3><i class="fa-solid fa-brain" style="color: var(--primary);"></i> AI/ML Basics</h3>
           <p>Data preprocessing, Scikit-learn basics, Random Forest, Decision Tree, KNN, and RCA basics.</p>
         </article>
       </div>
