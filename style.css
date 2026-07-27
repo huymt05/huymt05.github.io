@@ -612,6 +612,13 @@ h3 {
   margin-bottom: 48px;
 }
 
+.section-kicker {
+  max-width: 680px;
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -652,14 +659,48 @@ h3 {
 
 .project-card {
   display: flex;
-  min-height: 320px;
+  min-height: 336px;
   flex-direction: column;
+  padding-top: 62px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.84)),
+    var(--surface);
+}
+
+.project-card::after {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.15), transparent 68%);
+  content: "";
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.project-index {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 12px;
+  color: var(--primary-dark);
+  background: var(--soft);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .project-topline {
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-family: var(--font-mono);
   font-size: 13px;
 }
@@ -670,12 +711,21 @@ h3 {
 }
 
 .project-topline a {
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 999px;
+  color: var(--primary-dark);
+  background: rgba(240, 253, 250, 0.76);
   font-weight: 700;
 }
 
 .project-topline a:hover {
+  border-color: rgba(15, 118, 110, 0.28);
   color: var(--primary);
+  background: #ffffff;
 }
 
 .project-topline a i {
@@ -688,13 +738,16 @@ h3 {
 
 .project-card p {
   flex-grow: 1;
+  font-size: 16px;
+  line-height: 1.68;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 24px;
+  margin-top: auto;
+  padding-top: 28px;
 }
 
 .tags span {
