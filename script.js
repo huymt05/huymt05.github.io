@@ -5,6 +5,7 @@ const year = document.querySelector("#year");
 const header = document.querySelector(".site-header");
 const progress = document.querySelector(".page-progress");
 const heroPanel = document.querySelector(".hero-panel");
+const introCard = document.querySelector(".personal-intro");
 
 // Update dynamic year
 if (year) {
@@ -99,4 +100,32 @@ heroPanel?.addEventListener("pointerleave", () => {
   heroPanel.style.setProperty("--tilt-y", "0deg");
   heroPanel.style.setProperty("--spot-x", "50%");
   heroPanel.style.setProperty("--spot-y", "20%");
+});
+
+introCard?.addEventListener("pointermove", (event) => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const rect = introCard.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width;
+  const y = (event.clientY - rect.top) / rect.height;
+
+  introCard.style.setProperty("--intro-tilt-x", `${(x - 0.5) * 5}deg`);
+  introCard.style.setProperty("--intro-tilt-y", `${(0.5 - y) * 5}deg`);
+  introCard.style.setProperty("--intro-shift-x", `${(x - 0.5) * 4}px`);
+  introCard.style.setProperty("--intro-shift-y", `${(y - 0.5) * 4}px`);
+  introCard.style.setProperty("--intro-spot-x", `${x * 100}%`);
+  introCard.style.setProperty("--intro-spot-y", `${y * 100}%`);
+  introCard.style.setProperty("--intro-cursor-scale", "1");
+});
+
+introCard?.addEventListener("pointerleave", () => {
+  introCard.style.setProperty("--intro-tilt-x", "0deg");
+  introCard.style.setProperty("--intro-tilt-y", "0deg");
+  introCard.style.setProperty("--intro-shift-x", "0px");
+  introCard.style.setProperty("--intro-shift-y", "0px");
+  introCard.style.setProperty("--intro-spot-x", "50%");
+  introCard.style.setProperty("--intro-spot-y", "45%");
+  introCard.style.setProperty("--intro-cursor-scale", "0.72");
 });
