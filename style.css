@@ -189,7 +189,33 @@ a {
   gap: 48px;
   align-items: center;
   min-height: calc(100vh - 100px);
-  padding-top: 42px;
+  padding-top: 76px;
+}
+
+.hero-copy {
+  position: relative;
+}
+
+.hero-copy::before {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  width: 92px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--violet), var(--warm));
+  content: "";
+  animation: marker-slide 5.8s ease-in-out infinite;
+}
+
+@keyframes marker-slide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(34px);
+  }
 }
 
 .eyebrow {
@@ -212,8 +238,8 @@ p {
 h1 {
   margin-bottom: 24px;
   color: #020617;
-  font-size: clamp(40px, 6vw, 64px);
-  line-height: 1.08;
+  font-size: clamp(38px, 5.4vw, 58px);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
@@ -258,16 +284,67 @@ h3 {
 }
 
 .personal-intro {
+  position: relative;
+  overflow: hidden;
   max-width: 720px;
   margin: 0 0 32px;
-  padding: 20px 22px;
+  padding: 22px;
   border: 1px solid rgba(20, 184, 199, 0.18);
-  border-radius: 18px;
+  border-radius: 22px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(232, 251, 251, 0.58) 55%, rgba(241, 235, 255, 0.48)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(232, 251, 251, 0.62) 55%, rgba(241, 235, 255, 0.52)),
     rgba(255, 255, 255, 0.7);
   box-shadow: 0 18px 48px rgba(21, 27, 61, 0.07);
   backdrop-filter: blur(14px);
+}
+
+.personal-intro::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.42) 42%, transparent 66%),
+    linear-gradient(90deg, rgba(20, 184, 199, 0.08), transparent 48%, rgba(124, 58, 237, 0.08));
+  content: "";
+  opacity: 0.7;
+  transform: translateX(-55%);
+  animation: intro-sheen 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes intro-sheen {
+  0%,
+  58% {
+    transform: translateX(-55%);
+  }
+  82%,
+  100% {
+    transform: translateX(55%);
+  }
+}
+
+.personal-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.intro-heading {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.intro-heading span {
+  color: var(--primary-dark);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.intro-heading strong {
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.25;
 }
 
 .personal-intro p {
@@ -277,8 +354,48 @@ h3 {
   line-height: 1.72;
 }
 
-.personal-intro p:last-child {
-  margin-bottom: 0;
+.intro-highlights,
+.hobby-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.intro-highlights {
+  margin-top: 18px;
+}
+
+.hobby-row {
+  margin-top: 10px;
+}
+
+.intro-highlights span,
+.hobby-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid rgba(20, 184, 199, 0.14);
+  border-radius: 999px;
+  color: var(--primary-dark);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s ease, background 0.25s ease;
+}
+
+.hobby-row span {
+  border-color: rgba(124, 58, 237, 0.14);
+  color: #5b21b6;
+  background: rgba(241, 235, 255, 0.64);
+}
+
+.intro-highlights span:hover,
+.hobby-row span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124, 58, 237, 0.28);
+  background: #ffffff;
 }
 
 .hero-actions,
