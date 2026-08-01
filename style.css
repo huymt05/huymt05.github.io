@@ -60,6 +60,8 @@ body::before {
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.82), transparent 72%);
   pointer-events: none;
+  transform: translate3d(0, calc(var(--grid-offset, 0px) * -1), 0);
+  will-change: transform;
 }
 
 .page-progress {
@@ -1113,15 +1115,63 @@ h3 {
   color: var(--primary);
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+.reveal-group .section-heading {
+  position: relative;
 }
 
-.reveal.active {
+.reveal-group .section-heading::after {
+  display: block;
+  width: min(120px, 28%);
+  height: 3px;
+  margin-top: 22px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--violet));
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity 0.45s ease 0.2s, transform 0.8s var(--ease-out) 0.2s;
+}
+
+.reveal-group .section-heading.is-visible::after {
   opacity: 1;
-  transform: translateY(0);
+  transform: scaleX(1);
+}
+
+.motion-enabled .motion-reveal {
+  opacity: 0;
+  filter: blur(7px);
+  transform: translate3d(0, 42px, 0) scale(0.985);
+  transition:
+    opacity 0.75s ease var(--reveal-delay, 0ms),
+    filter 0.75s ease var(--reveal-delay, 0ms),
+    transform 0.9s var(--ease-out) var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.motion-enabled .motion-reveal.reveal-from-right {
+  transform: translate3d(38px, 20px, 0) scale(0.985);
+}
+
+.motion-enabled .motion-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-enabled .hero-panel.motion-reveal.is-visible {
+  transform:
+    perspective(1100px)
+    rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg));
+}
+
+.motion-enabled .personal-intro.motion-reveal.is-visible {
+  transform:
+    perspective(1000px)
+    rotateX(var(--intro-tilt-y, 0deg))
+    rotateY(var(--intro-tilt-x, 0deg))
+    translate3d(var(--intro-shift-x, 0px), var(--intro-shift-y, 0px), 0);
 }
 
 @media (max-width: 900px) {
@@ -1255,5 +1305,11 @@ h3 {
   .hero-panel,
   .personal-intro {
     transform: none !important;
+  }
+
+  .motion-enabled .motion-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
 }
